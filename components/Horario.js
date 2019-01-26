@@ -4,8 +4,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import sizes from '../assets/sizes/sizes';
 import colors from '../assets/colors/colors';
 
-const Horario = ({ horario, ceu }) => (
-  <View style={styles.container}>
+const Horario = ({ horario, ceu, index }) => (
+  <View style={ index % 2 == 0 ? styles.container : styles.containerAlt}>
     <Text style={styles.horario}>
       { horario }
     </Text>
@@ -24,20 +24,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // marginRight: sizes.marginRight,
-    // marginLeft: sizes.marginLeft,
-    // marginBottom: sizes.marginBottom,
-    // backgroundColor: colors.backgroundSecondary,
     padding: sizes.padding,
-    // borderWidth: 0,
-    // borderRadius: sizes.horarioCard.borderRadius,
     borderBottomWidth: 1,
     borderBottomColor: '#cdcdcd',
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 12 },
-    // shadowOpacity: 0.6,
-    // shadowRadius: 4,
-    // elevation: 1,
+  },
+  containerAlt: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#EEEEEE',
+    borderBottomWidth: 1,
+    borderBottomColor: '#cdcdcd',
+    padding: sizes.padding,
   },
   horario: {
     color: colors.foregrounPrimary,
@@ -54,11 +51,13 @@ const styles = StyleSheet.create({
 Horario.propTypes = {
   horario: PropTypes.string,
   ceu: PropTypes.bool,
+  index: PropTypes.number
 };
 
 Horario.defaultProps = {
   horario: '',
-  ceu: false
+  ceu: false,
+  index: 0
 };
 
 export default Horario;

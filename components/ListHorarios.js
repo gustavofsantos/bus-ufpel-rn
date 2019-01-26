@@ -7,6 +7,7 @@ const ListHorarios = props => {
   const horarios = props.horarios.map((horario, index) => (
     <Horario
       key={index}
+      index={index}
       horario={horario.horario}
       ceu={horario.ceu}
     />
@@ -22,8 +23,6 @@ const ListHorarios = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    marginLeft: sizes.marginLeft,
-    marginRight: sizes.marginRight,
     marginBottom: sizes.marginBottom,
   }
 });

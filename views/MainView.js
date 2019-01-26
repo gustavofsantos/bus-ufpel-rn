@@ -9,6 +9,7 @@ import HorizontalListGradientCards from '../components/HorizontalListGradientCar
 import ListHorarios from '../components/ListHorarios';
 import prettyLinha from '../libs/prettyLinha';
 import sizes from '../assets/sizes/sizes';
+import NenhumHorario from '../components/NenhumHorario';
 
 export default class MainView extends React.Component {
 
@@ -95,13 +96,21 @@ export default class MainView extends React.Component {
         <View>
           <View />
 
-          <Section>
-            {strings.sectionProximosHorarios}
-          </Section>
+          {
+            this.state.proximosHorarios.length > 0 ?
+              <View>
+                <Section>
+                  {strings.sectionProximosHorarios}
+                </Section>
 
-          <HorizontalListGradientCards
-            horarios={this.state.proximosHorarios}
-          />
+                <HorizontalListGradientCards
+                  horarios={this.state.proximosHorarios}
+                />
+              </View>
+            :
+              <NenhumHorario />
+          }
+
         </View>
 
         <View>
