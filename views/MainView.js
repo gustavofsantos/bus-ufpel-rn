@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, StatusBar, Picker } from 'react-native';
-import CardGradient from '../components/CardGradient';
+import { ScrollView, View, StyleSheet, StatusBar, Picker } from 'react-native';
 import Section from '../components/Section';
 import strings from '../assets/strings/strings_ptBR';
 import fetchHorarios from "../libs/fetchHorarios";
@@ -9,10 +8,8 @@ import HorizontalListGradientCards from '../components/HorizontalListGradientCar
 import ListHorarios from '../components/ListHorarios';
 import prettyLinha from '../libs/prettyLinha';
 import sizes from '../assets/sizes/sizes';
-import NenhumHorario from '../components/NenhumHorario';
 
 export default class MainView extends React.Component {
-
   linhas = [
     'anglo-ru',
     'anglo-med',
@@ -84,7 +81,7 @@ export default class MainView extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <StatusBar
           hidden={false}
           barStyle="dark-content"
@@ -108,7 +105,7 @@ export default class MainView extends React.Component {
                 />
               </View>
             :
-              <NenhumHorario />
+              <View></View>
           }
 
         </View>
@@ -136,10 +133,14 @@ export default class MainView extends React.Component {
             horarios={this.state.horarios}
           />
         </View>
-      </View>
+      </ScrollView>
     )
   }
 }
+
+MainView.navigationOptions = {
+  title: 'Main view'
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -153,5 +154,9 @@ const styles = StyleSheet.create({
   column: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-  }
-})
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});

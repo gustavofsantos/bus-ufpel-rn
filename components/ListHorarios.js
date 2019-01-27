@@ -23,7 +23,6 @@ const ListHorarios = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    marginBottom: sizes.marginBottom,
   }
 });
 

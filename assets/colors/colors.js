@@ -18,8 +18,8 @@ const colors = {
       color2: '#FCEE21'
     },
     {
-      color1: '#312A6C',
-      color2: '#312A6C'
+      color1: '#43CBFF',
+      color2: '#9708CC'
     },
     {
       color1: '#3A3897',
